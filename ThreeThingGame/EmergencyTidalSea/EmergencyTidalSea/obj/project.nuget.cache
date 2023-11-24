@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d6hHO7PgBi847E7XeTck0kh46HxVFl1Z51R40uVaD3cjkndzrRM1H6vwDHIZ/qhfBui4D+/Gzj3z7ks0CXvH7g==",
+  "dgSpecHash": "2zCrfC5ZSlc7olv9FCQP8ExeeysUtVRVMNFrCyFBz4nJ74BSY1adKsW07U1aApsP5w+ixTtLqkftHbDswW8oQg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\super_lia1i9n\\Desktop\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\EmergencyTidalSea.csproj",
+  "projectFilePath": "C:\\Users\\super_lia1i9n\\Desktop\\EmergencyTidalSea\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\EmergencyTidalSea.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\super_lia1i9n\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
     "C:\\Users\\super_lia1i9n\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
+using static EmergencyTidalSea.RenderingGlobals;
 namespace EmergencyTidalSea
 {
     public class Game1 : Game
@@ -15,7 +15,10 @@ namespace EmergencyTidalSea
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
-
+        public Texture2D LoadTexture(string pTextureName)
+        {
+            return Content.Load<Texture2D>(pTextureName);
+        }
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
@@ -26,7 +29,10 @@ namespace EmergencyTidalSea
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            SpriteBatchGlobal = _spriteBatch;
+            ScreenHeight = GraphicsDevice.Viewport.Height;
+            ScreenWidth = GraphicsDevice.Viewport.Width;
+            TextureLoaderGlobal = new TextureLoader(this);
             // TODO: use this.Content to load your game content here
         }
 

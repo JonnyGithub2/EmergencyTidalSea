@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\super_lia1i9n\\Desktop\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\EmergencyTidalSea.csproj": {}
+    "C:\\Users\\super_lia1i9n\\Desktop\\EmergencyTidalSea\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\EmergencyTidalSea.csproj": {}
   },
   "projects": {
-    "C:\\Users\\super_lia1i9n\\Desktop\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\EmergencyTidalSea.csproj": {
+    "C:\\Users\\super_lia1i9n\\Desktop\\EmergencyTidalSea\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\EmergencyTidalSea.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\super_lia1i9n\\Desktop\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\EmergencyTidalSea.csproj",
+        "projectUniqueName": "C:\\Users\\super_lia1i9n\\Desktop\\EmergencyTidalSea\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\EmergencyTidalSea.csproj",
         "projectName": "EmergencyTidalSea",
-        "projectPath": "C:\\Users\\super_lia1i9n\\Desktop\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\EmergencyTidalSea.csproj",
+        "projectPath": "C:\\Users\\super_lia1i9n\\Desktop\\EmergencyTidalSea\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\EmergencyTidalSea.csproj",
         "packagesPath": "C:\\Users\\super_lia1i9n\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\super_lia1i9n\\Desktop\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\obj\\",
+        "outputPath": "C:\\Users\\super_lia1i9n\\Desktop\\EmergencyTidalSea\\ThreeThingGame\\EmergencyTidalSea\\EmergencyTidalSea\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

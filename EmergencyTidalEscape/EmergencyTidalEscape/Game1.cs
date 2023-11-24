@@ -1,13 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using static EmergencyTidalSea.RenderingGlobals;
-namespace NewTestProject
+using static EmergencyTidalEscape.RenderingGlobals;
+namespace EmergencyTidalEscape
 {
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private Wave _wave;
 
         public Game1()
         {
@@ -29,10 +30,13 @@ namespace NewTestProject
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+
             SpriteBatchGlobal = _spriteBatch;
             ScreenHeight = GraphicsDevice.Viewport.Height;
             ScreenWidth = GraphicsDevice.Viewport.Width;
             TextureLoaderGlobal = new TextureLoader(this);
+
+            _wave = new Wave();
             // TODO: use this.Content to load your game content here
         }
 
@@ -49,7 +53,9 @@ namespace NewTestProject
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            SpriteBatchGlobal.Begin();
+            _wave.Render();
+            SpriteBatchGlobal.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

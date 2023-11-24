@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static NewTestProject.RenderingGlobals;
-namespace NewTestProject
+using static EmergencyTidalEscape.RenderingGlobals;
+namespace EmergencyTidalEscape
 {
     public class Wave
     {

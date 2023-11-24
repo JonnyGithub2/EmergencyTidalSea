@@ -44,6 +44,8 @@ namespace EmergencyTidalEscape
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            _wave.Scroll();
+            _wave.Rise(0.0001f);
 
             // TODO: Add your update logic here
 

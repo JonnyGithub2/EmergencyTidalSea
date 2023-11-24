@@ -16,11 +16,16 @@ namespace EmergencyTidalEscape
         public Wave()
         {
             _waveTexture = TextureLoaderGlobal.LoadTexture("WaveTexture");
+            _waveHeight = 0;
+            _waveScroll = 0;
         }
         public void Render()
         {
-            Vector2 waveLocation = new Vector2(ScreenWidth * _waveScroll, ScreenHeight * _waveHeight);
-            SpriteBatchGlobal.Draw(_waveTexture, waveLocation, Color.White);
+            Vector2 waveLocation1 = new Vector2(ScreenWidth * _waveScroll, ScreenHeight * (1 - _waveHeight));
+            Vector2 waveLocation2 = new Vector2(ScreenWidth *( _waveScroll - 1), ScreenHeight * (1 - _waveHeight));
+            SpriteBatchGlobal.Draw(_waveTexture, waveLocation1, Color.White);
+            SpriteBatchGlobal.Draw(_waveTexture, waveLocation2, Color.White);
+
         }
         public void Rise(float heightToRise)
         {

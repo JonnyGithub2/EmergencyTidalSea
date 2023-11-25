@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks.Sources;
+using System.Diagnostics;
 
 namespace EmergencyTidalEscape.Sprites
 {
@@ -76,21 +77,22 @@ namespace EmergencyTidalEscape.Sprites
         }
         private void StartJump()
         {
-            velocity.X += 10;
+            velocity.Y -= 10;
             _state = playerState.JUMPING;
         }
         private bool OnGround(List<Sprite> sprites)
         {
             foreach(Sprite sprite in sprites)
             {
-                Console.WriteLine("checking x pos");
-                if(this.position.X > sprite.PositionRectangle.Right && this.position.X < sprite.PositionRectangle.Left)
+                if(sprite != this)
                 {
-                    Console.WriteLine("checking y pos");
-                    //sprite is lined up with player, now check if player is on top
-                    if (this.position.Y < sprite.PositionRectangle.Top + 50 && this.position.Y > PositionRectangle.Bottom)
+                    if (this.position.X > sprite.PositionRectangle.Left - 20 && this.position.X < sprite.PositionRectangle.Right + 20)
                     {
-                        return true;
+                        //sprite is lined up with player, now check if player is on top
+                        if (this.position.Y < sprite.PositionRectangle.Bottom && this.position.Y > sprite.PositionRectangle.Top - 50)
+                        {
+                            return true;
+                        }
                     }
                 }
             }
@@ -98,47 +100,34 @@ namespace EmergencyTidalEscape.Sprites
         }
         public void Update(GameTime gameTime, List<Sprite> sprites)
         {
-            if(OnGround(sprites) && !(_state == playerState.JUMPING))
+            bool Grounded = OnGround(sprites);
+            if(Grounded && !(_state == playerState.JUMPING))
             {
                 _state = playerState.STANDING;
             }
-            else
+            else if(!Grounded && _state == playerState.STANDING)
             {
                 _state = playerState.FALLING;
             }
+            else
+            {
+                if(_state == playerState.JUMPING)
+                {
+                    velocity += new Vector2(0, 0.5f);
+                }
+                if(velocity.Y > 0)
+                {
+                    _state = playerState.FALLING;
+                }
+            }
             if(_state == playerState.FALLING)
             {
+                velocity = new Vector2(0, 0);
                 position.Y += gravity;
             }
-            
+            position += velocity;
             KeyboardState currentKeyboardState = Keyboard.GetState();
             HandleInput(currentKeyboardState);
-
-            foreach (var sprite in sprites)
-            {
-                if (sprite == this)
-                {
-                    continue;
-                }
-
-                
-
-                if ((this.Velocity.X > 0 && this.IsTouchingLeft(sprite))
-                    || (this.Velocity.X < 0 & this.IsTouchingRight(sprite)))
-                {
-                    position.X = 0;
-                    HandleInput(currentKeyboardState);
-                }
-                if ((this.Velocity.Y > 0 && this.IsTouchingTop(sprite))
-                    || (this.Velocity.Y < 0 & this.IsTouchingBottom(sprite)))
-                {
-                    position.Y = 0;
-                    HandleInput(currentKeyboardState);
-                }
-            }
-
-
-
         }
 
     }

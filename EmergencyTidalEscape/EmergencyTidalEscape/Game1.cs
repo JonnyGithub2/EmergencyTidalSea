@@ -60,9 +60,9 @@ namespace EmergencyTidalEscape
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _titleScreen = new TitleScreen(this, new Vector2 (0, 0));
             _background = new Background(this, new Vector2(0,0));
-            _player = new Player(this, new Vector2(400f, 0.0f));
+            _player = new Player(this, new Vector2(401f, 0.0f));
             _platform = new Platform(this, new Vector2(400, 200));
-            _showGame = false;
+            _showGame = true;
 
             _sprites = new List<Sprite>()
             {

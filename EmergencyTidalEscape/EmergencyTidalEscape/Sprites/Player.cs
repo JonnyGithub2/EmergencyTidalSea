@@ -41,7 +41,7 @@ namespace EmergencyTidalEscape.Sprites
         public void LoadContent()
         {
 
-            this.SpriteImage = _root.Content.Load<Texture2D>("duncan_morter");
+            this.SpriteImage = _root.Content.Load<Texture2D>("duck");
         }
 
         private void HandleInput(KeyboardState currentKeyboardState)
@@ -61,10 +61,12 @@ namespace EmergencyTidalEscape.Sprites
             if (aKeyPressed)
             {
                 position.X -= movementSpeed;
+                SpriteImage = _root.Content.Load<Texture2D>("duck-left");
             }
             if (dKeyPressed)
             {
                 position.X += movementSpeed;
+                SpriteImage = _root.Content.Load<Texture2D>("duck");
             }
             
         }

@@ -78,7 +78,7 @@ namespace EmergencyTidalEscape
                 Exit();
             _wave.Scroll();
             _player.Update(gameTime, _sprites);
-            _wave.Rise(0.0001f);
+            _wave.Rise(0.0005f);
             _siren.Update();
             
 

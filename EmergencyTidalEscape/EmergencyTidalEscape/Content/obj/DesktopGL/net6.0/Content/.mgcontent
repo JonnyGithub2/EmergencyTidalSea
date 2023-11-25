@@ -4,6 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duck-left.png</File>
+    <File>C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duck.png</File>
     <File>C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duncan_morter.png</File>
     <File>C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/platform_sprite.png</File>
     <File>C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/platform.png</File>
@@ -12,6 +14,8 @@
     <File>C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveTexture.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

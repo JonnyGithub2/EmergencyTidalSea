@@ -57,3 +57,5 @@ C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTid
 C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\bin\Debug\net6.0\Content\platform_sprite.xnb
 C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\bin\Debug\net6.0\Content\wave-gif.xnb
 C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\bin\Debug\net6.0\Content\platform.xnb
+C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\bin\Debug\net6.0\Content\duck-left.xnb
+C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\bin\Debug\net6.0\Content\duck.xnb

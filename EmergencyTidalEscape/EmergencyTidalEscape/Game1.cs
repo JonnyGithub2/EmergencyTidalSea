@@ -60,7 +60,8 @@ namespace EmergencyTidalEscape
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _titleScreen = new TitleScreen(this, new Vector2 (0, 0));
             _background = new Background(this, new Vector2(0,0));
-            _player = new Player(this, new Vector2(401f, 0.0f));
+            _wave = new Wave(this);
+            _player = new Player(this, new Vector2(401f, 0.0f), _wave);
             _platform = new Platform(this, new Vector2(400, 200));
             _showGame = true;
 
@@ -75,7 +76,6 @@ namespace EmergencyTidalEscape
             ScreenWidthGlobal = screenWidth;
             TextureLoaderGlobal = new TextureLoader(this);
 
-            _wave = new Wave(this);
             _siren = new Siren();
             _siren._enabled = true;
             // TODO: use this.Content to load your game content here
@@ -131,7 +131,14 @@ namespace EmergencyTidalEscape
                     sprite.Draw(gameTime, _spriteBatch);
                 }
                 _wave.Render();
-                //_siren.Render();
+                if (_player._dangerLevel == 1)
+                {
+                    _siren.Render();
+                }
+                else if(_player._dangerLevel == 2)
+                {
+                    _showGame = false;
+                }
             }
 
 

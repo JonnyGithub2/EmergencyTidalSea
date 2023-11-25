@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,9 +31,12 @@ namespace EmergencyTidalEscape
             Vector2 waveLocation2 = new Vector2(ScreenWidthGlobal * (_waveScroll - 1), ScreenHeightGlobal * (1 - _waveHeight));
             SpriteBatchGlobal.Draw(_waveTexture, new Rectangle((int)waveLocation1.X, (int)waveLocation1.Y, 900, 900), Color.White);
             SpriteBatchGlobal.Draw(_waveTexture, new Rectangle((int)waveLocation2.X, (int)waveLocation2.Y, 900, 900), Color.White);
-
-
-
+        }
+        public float GetWaveKillZone()
+        {
+            float waveKillZone = (ScreenHeightGlobal * (1 -  _waveHeight)) + 350;
+            //Debug.WriteLine(waveKillZone);
+            return waveKillZone;
         }
 
         public void Rise(float heightToRise)

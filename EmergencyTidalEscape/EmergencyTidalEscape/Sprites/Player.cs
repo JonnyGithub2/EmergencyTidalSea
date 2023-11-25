@@ -23,6 +23,10 @@ namespace EmergencyTidalEscape.Sprites
         private float movementSpeed = 10.0f;
 
         private Vector2 velocity;
+        private Wave _wave;
+        public int _dangerLevel; //0 = not near wave, 1 = near wave (siren active), 2 = in wave (die)
+
+
         private enum playerState
         {
             JUMPING,
@@ -32,7 +36,7 @@ namespace EmergencyTidalEscape.Sprites
         private playerState _state;
 
 
-        public Player(Game1 root, Vector2 position) : base(position)
+        public Player(Game1 root, Vector2 position, Wave wave) : base(position)
         {
             this._root = root;
             this.position = position;
@@ -43,6 +47,8 @@ namespace EmergencyTidalEscape.Sprites
             _state = playerState.STANDING;
 
             LoadContent();
+            _wave = wave;
+            _dangerLevel = 0;
         }
 
 
@@ -128,6 +134,18 @@ namespace EmergencyTidalEscape.Sprites
             position += velocity;
             KeyboardState currentKeyboardState = Keyboard.GetState();
             HandleInput(currentKeyboardState);
+            if(this.position.Y > _wave.GetWaveKillZone() - 300)
+            {
+                _dangerLevel = 1;
+                if(this.position.Y > _wave.GetWaveKillZone())
+                {
+                    _dangerLevel = 2;
+                }
+            }
+            else
+            {
+                _dangerLevel = 0;
+            }
         }
 
     }

@@ -9,12 +9,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+
 namespace EmergencyTidalEscape.Sprites
 {
     internal class Player : Sprite
     {
         private Game1 _root;
 
+        float gravity;
 
         private float movementSpeed = 10.0f;
 
@@ -26,7 +28,7 @@ namespace EmergencyTidalEscape.Sprites
             this._root = root;
             this.position = position;
             this.SpriteWidth = 128.0f;
-
+            gravity = 9.81f;
             LoadContent();
         }
 
@@ -60,11 +62,12 @@ namespace EmergencyTidalEscape.Sprites
             {
                 position.X += movementSpeed;
             }
-            if(position.Y = )
+            
         }
 
         public void Update(GameTime gameTime)
         {
+            position.Y += gravity;
             KeyboardState currentKeyboardState = Keyboard.GetState();
             HandleInput(currentKeyboardState);
         }

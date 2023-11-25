@@ -24,3 +24,4 @@ C:\Users\super_lia1i9n\Desktop\EmergencyTidalSea\EmergencyTidalEscape\EmergencyT
 C:\Users\super_lia1i9n\Desktop\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\obj\Debug\net6.0\EmergencyTidalEscape.pdb
 C:\Users\super_lia1i9n\Desktop\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\obj\Debug\net6.0\EmergencyTidalEscape.genruntimeconfig.cache
 C:\Users\super_lia1i9n\Desktop\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\obj\Debug\net6.0\ref\EmergencyTidalEscape.dll
+C:\Users\super_lia1i9n\Desktop\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\bin\Debug\net6.0\Content\RedOverlay.xnb

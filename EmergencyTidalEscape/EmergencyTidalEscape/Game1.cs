@@ -9,6 +9,7 @@ namespace EmergencyTidalEscape
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private Wave _wave;
+        private Siren _siren;
 
         public Game1()
         {
@@ -37,6 +38,8 @@ namespace EmergencyTidalEscape
             TextureLoaderGlobal = new TextureLoader(this);
 
             _wave = new Wave();
+            _siren = new Siren();
+            _siren._enabled = true;
             // TODO: use this.Content to load your game content here
         }
 
@@ -46,6 +49,7 @@ namespace EmergencyTidalEscape
                 Exit();
             _wave.Scroll();
             _wave.Rise(0.0001f);
+            _siren.Update();
 
             // TODO: Add your update logic here
 
@@ -57,6 +61,7 @@ namespace EmergencyTidalEscape
             GraphicsDevice.Clear(Color.CornflowerBlue);
             SpriteBatchGlobal.Begin();
             _wave.Render();
+            _siren.Render();
             SpriteBatchGlobal.End();
             // TODO: Add your drawing code here
 

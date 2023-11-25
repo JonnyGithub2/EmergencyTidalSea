@@ -20,7 +20,7 @@ namespace EmergencyTidalEscape
         public Wave(Game1 root)
         {
             _root = root;
-            _waveTexture = _root.Content.Load<Texture2D>("wave-gif");
+            _waveTexture = _root.Content.Load<Texture2D>("WaveTexture");
             _waveHeight = 0;
             _waveScroll = 0;
         }
@@ -28,8 +28,8 @@ namespace EmergencyTidalEscape
         {
             Vector2 waveLocation1 = new Vector2(ScreenWidthGlobal * _waveScroll, ScreenHeightGlobal * (1 - _waveHeight));
             Vector2 waveLocation2 = new Vector2(ScreenWidthGlobal * (_waveScroll - 1), ScreenHeightGlobal * (1 - _waveHeight));
-            SpriteBatchGlobal.Draw(_waveTexture, waveLocation1, Color.White);
-            SpriteBatchGlobal.Draw(_waveTexture, waveLocation2, Color.White);
+            SpriteBatchGlobal.Draw(_waveTexture, new Rectangle((int)waveLocation1.X, (int)waveLocation1.Y, 900, 900), Color.White);
+            SpriteBatchGlobal.Draw(_waveTexture, new Rectangle((int)waveLocation2.X, (int)waveLocation2.Y, 900, 900), Color.White);
 
 
 

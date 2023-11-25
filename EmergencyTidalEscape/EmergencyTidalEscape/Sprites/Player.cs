@@ -37,7 +37,7 @@ namespace EmergencyTidalEscape.Sprites
             this._root = root;
             this.position = position;
             this.SpriteWidth = 128.0f;
-            gravity = 5f;
+            gravity = 4f;
 
             velocity = GetVelocity();
             _state = playerState.STANDING;
@@ -77,7 +77,7 @@ namespace EmergencyTidalEscape.Sprites
         }
         private void StartJump()
         {
-            velocity.Y -= 10;
+            velocity.Y -= 20;
             _state = playerState.JUMPING;
         }
         private bool OnGround(List<Sprite> sprites)
@@ -86,10 +86,10 @@ namespace EmergencyTidalEscape.Sprites
             {
                 if(sprite != this)
                 {
-                    if (this.position.X > sprite.PositionRectangle.Left - 20 && this.position.X < sprite.PositionRectangle.Right + 20)
+                    if (this.position.X > sprite.PositionRectangle.Left - (this.SpriteWidth / 2) && this.position.X < sprite.PositionRectangle.Right - (this.SpriteWidth / 2))
                     {
                         //sprite is lined up with player, now check if player is on top
-                        if (this.position.Y < sprite.PositionRectangle.Bottom && this.position.Y > sprite.PositionRectangle.Top - 50)
+                        if (this.position.Y < sprite.PositionRectangle.Bottom - 100 && this.position.Y > sprite.PositionRectangle.Top - 80)
                         {
                             return true;
                         }

@@ -66,7 +66,7 @@ namespace EmergencyTidalEscape
 
             _sprites = new List<Sprite>()
             {
-                _platform, _player, new Platform(this, new Vector2(400, 600))
+                _platform, _player, new Platform(this, new Vector2(400, 600)), new Platform(this, new Vector2(400, 400))
             };
 
 
@@ -103,10 +103,15 @@ namespace EmergencyTidalEscape
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            SpriteBatchGlobal.Begin();
+            SpriteBatchGlobal.Begin(SpriteSortMode.Deferred,
+            BlendState.AlphaBlend,
+            SamplerState.PointClamp,
+            DepthStencilState.None,
+            RasterizerState.CullNone,
+            null);
 
 
-            
+
             if (_showGame == false)
             {
                 _titleScreen.Draw(gameTime, _spriteBatch);
@@ -126,6 +131,7 @@ namespace EmergencyTidalEscape
                     sprite.Draw(gameTime, _spriteBatch);
                 }
                 _wave.Render();
+                //_siren.Render();
             }
 
 

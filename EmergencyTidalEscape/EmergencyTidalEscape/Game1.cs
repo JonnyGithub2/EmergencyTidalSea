@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 using static EmergencyTidalEscape.RenderingGlobals;
 namespace EmergencyTidalEscape
 {
@@ -11,6 +12,8 @@ namespace EmergencyTidalEscape
         private SpriteBatch _spriteBatch;
         private Wave _wave;
         private Player _player;
+        private List<Sprite> _sprites;
+        private Platform _platform;
         private int screenWidth = 1600;
         public int ScreenWidth
         {
@@ -50,6 +53,12 @@ namespace EmergencyTidalEscape
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _player = new Player(this, new Vector2(0.0f, 0.0f));
+            _platform = new Platform(this, new Vector2(800, 450), 128);
+
+            _sprites = new List<Sprite>()
+            {
+                _platform,_player
+            };
 
 
             SpriteBatchGlobal = _spriteBatch;
@@ -68,10 +77,10 @@ namespace EmergencyTidalEscape
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             _wave.Scroll();
-            _player.Update(gameTime);
+            _player.Update(gameTime, _sprites);
             _wave.Rise(0.0001f);
             _siren.Update();
-
+            
 
             // TODO: Add your update logic here
 
@@ -83,8 +92,9 @@ namespace EmergencyTidalEscape
             GraphicsDevice.Clear(Color.CornflowerBlue);
             SpriteBatchGlobal.Begin();
             _player.Draw(gameTime, _spriteBatch);
+            _platform.Draw(gameTime, _spriteBatch);
             _wave.Render();
-            _siren.Render();
+            //_siren.Render();
             SpriteBatchGlobal.End();
             // TODO: Add your drawing code here
 

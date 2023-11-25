@@ -61,6 +61,9 @@ namespace EmergencyTidalEscape.Sprites
                 return new Rectangle((int)position.X, (int)position.Y, (int)spriteWidth, (int)SpriteHeight);
             }
         }
+
+
+
         public Sprite(Vector2 position)
         {
             this.position = position;
@@ -72,6 +75,37 @@ namespace EmergencyTidalEscape.Sprites
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(spriteImage, PositionRectangle, Color.White);
+        }
+
+
+        protected bool IsTouchingLeft(Sprite sprite)
+        {
+            return this.PositionRectangle.Right + this.Velocity.X > sprite.PositionRectangle.Left &&
+                this.PositionRectangle.Left < sprite.PositionRectangle.Left &&
+                this.PositionRectangle.Bottom > sprite.PositionRectangle.Top &&
+                this.PositionRectangle.Top < sprite.PositionRectangle.Bottom;
+        }
+        protected bool IsTouchingRight(Sprite sprite)
+        {
+            return this.PositionRectangle.Left + this.Velocity.X < sprite.PositionRectangle.Right &&
+                this.PositionRectangle.Right > sprite.PositionRectangle.Right &&
+                this.PositionRectangle.Bottom > sprite.PositionRectangle.Top &&
+                this.PositionRectangle.Top < sprite.PositionRectangle.Bottom;
+        }
+        protected bool IsTouchingTop(Sprite sprite)
+        {
+            return this.PositionRectangle.Bottom + this.Velocity.Y < sprite.PositionRectangle.Top &&
+                this.PositionRectangle.Top < sprite.PositionRectangle.Top &&
+                this.PositionRectangle.Right > sprite.PositionRectangle.Left &&
+                this.PositionRectangle.Left < sprite.PositionRectangle.Right;
+        }
+
+        protected bool IsTouchingBottom(Sprite sprite)
+        {
+            return this.PositionRectangle.Top + this.Velocity.Y < sprite.PositionRectangle.Bottom &&
+                this.PositionRectangle.Bottom > sprite.PositionRectangle.Bottom &&
+                this.PositionRectangle.Right > sprite.PositionRectangle.Left &&
+                this.PositionRectangle.Left < sprite.PositionRectangle.Right;
         }
 
         public void SetBehaviour(Behaviour pBehaviour)

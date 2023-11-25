@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using EmergencyTidalEscape.Sprites;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using static EmergencyTidalEscape.RenderingGlobals;
@@ -9,6 +10,20 @@ namespace EmergencyTidalEscape
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private Wave _wave;
+        private Player _player;
+        private int screenWidth = 1600;
+        public int ScreenWidth
+        {
+            get { return screenWidth; }
+            set { screenWidth = value; }
+        }
+
+        private int screenHeight = 900;
+        public int ScreenHeight
+        {
+            get { return screenHeight; }
+            set { screenHeight = value; }
+        }
         private Siren _siren;
 
         public Game1()
@@ -16,6 +31,9 @@ namespace EmergencyTidalEscape
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            _graphics.PreferredBackBufferWidth = screenWidth;
+            _graphics.PreferredBackBufferHeight = screenHeight;
+            _graphics.ApplyChanges();
         }
         public Texture2D LoadTexture(string pTextureName)
         {
@@ -31,10 +49,12 @@ namespace EmergencyTidalEscape
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _player = new Player(this, new Vector2(0.0f, 0.0f));
+
 
             SpriteBatchGlobal = _spriteBatch;
-            ScreenHeight = GraphicsDevice.Viewport.Height;
-            ScreenWidth = GraphicsDevice.Viewport.Width;
+            ScreenHeightGlobal = screenHeight;
+            ScreenWidthGlobal = screenWidth;
             TextureLoaderGlobal = new TextureLoader(this);
 
             _wave = new Wave();
@@ -50,6 +70,7 @@ namespace EmergencyTidalEscape
             _wave.Scroll();
             _wave.Rise(0.0001f);
             _siren.Update();
+            _player.Update(gameTime);
 
             // TODO: Add your update logic here
 
@@ -62,6 +83,7 @@ namespace EmergencyTidalEscape
             SpriteBatchGlobal.Begin();
             _wave.Render();
             _siren.Render();
+            _player.Draw(gameTime, _spriteBatch);
             SpriteBatchGlobal.End();
             // TODO: Add your drawing code here
 

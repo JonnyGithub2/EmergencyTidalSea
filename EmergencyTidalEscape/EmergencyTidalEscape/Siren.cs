@@ -52,7 +52,7 @@ namespace EmergencyTidalEscape
         {
             if (_enabled)
             {
-                SpriteBatchGlobal.Draw(_overlayTexture, new Rectangle(0, 0, ScreenWidth, ScreenHeight), new Color(1, 1, 1, _alpha));
+                SpriteBatchGlobal.Draw(_overlayTexture, new Rectangle(0, 0, ScreenWidthGlobal, ScreenHeightGlobal), new Color(1, 1, 1, _alpha));
             }
         }
     }

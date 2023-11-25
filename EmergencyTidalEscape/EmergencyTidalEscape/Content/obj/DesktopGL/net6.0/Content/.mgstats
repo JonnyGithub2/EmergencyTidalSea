@@ -1,2 +1,8 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+<<<<<<< HEAD
 "C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/RedOverlay.png","C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/Content/RedOverlay.xnb","TextureProcessor","Texture2DContent",78132,16777301,0.752545
+=======
+"C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duncan_morter.png","C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/Content/duncan_morter.xnb","TextureProcessor","Texture2DContent",42332,640085,0.0120002
+"C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/RedOverlay.png","C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/Content/RedOverlay.xnb","TextureProcessor","Texture2DContent",78132,16777301,0.4938379
+"C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveTexture.png","C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/Content/WaveTexture.xnb","TextureProcessor","Texture2DContent",653272,2255925,0.1964396
+>>>>>>> 3cd5fcbad7d67b71970058fc809885a3d6cb4bd9

@@ -16,13 +16,13 @@ namespace EmergencyTidalEscape
             set => _spriteBatch = value;
         }
         private static int _screenHeight;
-        public static int ScreenHeight
+        public static int ScreenHeightGlobal
         {
             get => _screenHeight;
             set => _screenHeight = value;
         }
         private static int _screenWidth;
-        public static int ScreenWidth
+        public static int ScreenWidthGlobal
         {
             get => _screenWidth;
             set => _screenWidth = value;

@@ -14,6 +14,7 @@ namespace EmergencyTidalEscape
         KeyboardState currentKeyboardState;
         private SpriteBatch _spriteBatch;
         private Wave _wave;
+        private bool _showGame = false;
         private Background _background;
         private TitleScreen _titleScreen;
         private Player _player;
@@ -57,7 +58,8 @@ namespace EmergencyTidalEscape
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            //_background = new Background(this, new Vector2(0,0));
+            _titleScreen = new TitleScreen(this, new Vector2 (0, 0));
+            _background = new Background(this, new Vector2(0,0));
             _player = new Player(this, new Vector2(0.0f, 0.0f));
             _platform = new Platform(this, new Vector2(400, 200));
 
@@ -86,7 +88,8 @@ namespace EmergencyTidalEscape
             _player.Update(gameTime, _sprites);
             _wave.Rise(0.0005f);
             _siren.Update();
-            
+
+            _showGame = false;
 
             // TODO: Add your update logic here
 
@@ -99,17 +102,38 @@ namespace EmergencyTidalEscape
             SpriteBatchGlobal.Begin();
 
 
-                //_background.Draw(gameTime, _spriteBatch);
+            
+            if (_showGame = false)
+            {
+                _titleScreen.Draw(gameTime, _spriteBatch);
+
+            }
+
+
+            if (currentKeyboardState.IsKeyDown(Keys.Enter))
+            {
+                _showGame = true;
+            }
+
+
+            if (_showGame = true)
+            {
+                _background.Draw(gameTime, _spriteBatch);
                 _player.Draw(gameTime, _spriteBatch);
                 _platform.Draw(gameTime, _spriteBatch);
-            
+                _wave.Render();
+            }
 
 
 
 
 
-            
-            _wave.Render();
+
+
+
+
+
+
             //_siren.Render();
             SpriteBatchGlobal.End();
             // TODO: Add your drawing code here

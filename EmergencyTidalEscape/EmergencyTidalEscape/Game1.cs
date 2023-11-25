@@ -21,6 +21,8 @@ namespace EmergencyTidalEscape
         private List<Sprite> _sprites;
         private Platform _platform;
         private int screenWidth = 900;
+        private WaveFreeze _powerupTest;
+        public List<Powerup> _powerups;
         public int ScreenWidth
         {
             get { return screenWidth; }
@@ -77,6 +79,9 @@ namespace EmergencyTidalEscape
             TextureLoaderGlobal = new TextureLoader(this);
 
             _siren = new Siren();
+            _powerupTest = new WaveFreeze(new Vector2(400, 500));
+            _powerups = new List<Powerup>();
+            _powerups.Add(_powerupTest);
             _siren._enabled = true;
             // TODO: use this.Content to load your game content here
         }
@@ -139,6 +144,7 @@ namespace EmergencyTidalEscape
                 {
                     _showGame = false;
                 }
+                _powerupTest.Render();
             }
 
 

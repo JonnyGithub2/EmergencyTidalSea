@@ -14,11 +14,13 @@ namespace EmergencyTidalEscape
         public bool _enabled;
         public Vector2 _location;
         public Texture2D _texture;
+        public Rectangle _bounds;
         public Powerup(Vector2 pLocation, Texture2D pTexture)
         {
             _enabled = true;
             _location = pLocation;
             _texture = pTexture;
+            _bounds = new Rectangle((int)pLocation.X - 30, (int)pLocation.Y - 30, 80, 80);
         }
         public void OnPickup()
         {

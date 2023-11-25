@@ -104,6 +104,18 @@ namespace EmergencyTidalEscape.Sprites
             }
             return false;
         }
+        private Powerup FindPowerups(List<Powerup> pPowerups)
+        {
+            foreach(Powerup powerup in pPowerups)
+            {
+                Point pos = new Point((int)this.position.X, (int)this.position.Y);
+                if (powerup._bounds.Contains(pos))
+                {
+                    return powerup;
+                }
+            }
+            return null;
+        }
         public void Update(GameTime gameTime, List<Sprite> sprites)
         {
             bool Grounded = OnGround(sprites);
@@ -145,6 +157,11 @@ namespace EmergencyTidalEscape.Sprites
             else
             {
                 _dangerLevel = 0;
+            }
+            Powerup getPowerup = FindPowerups(_root._powerups);
+            if (getPowerup != null)
+            {
+                getPowerup.OnPickup();
             }
         }
 

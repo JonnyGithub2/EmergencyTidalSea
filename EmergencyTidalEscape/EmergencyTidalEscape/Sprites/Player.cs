@@ -84,20 +84,21 @@ namespace EmergencyTidalEscape.Sprites
                     continue;
                 }
 
-                if (this.velocity.X > 0 && this.IsTouchingLeft(sprite)
-                    || this.velocity.X < 0 && this.IsTouchingRight(sprite))
+                if ((this.Velocity.X > 0 && this.IsTouchingLeft(sprite))
+                    || (this.Velocity.X < 0 & this.IsTouchingRight(sprite)))
                 {
-                    this.velocity.X = 0;
+                    position.X = 0;
+                    HandleInput(currentKeyboardState);
                 }
-                if (this.velocity.Y > 0 && this.IsTouchingTop(sprite)
-                    || this.velocity.Y < 0 && this.IsTouchingBottom(sprite))
+                if ((this.Velocity.Y > 0 && this.IsTouchingTop(sprite))
+                    || (this.Velocity.Y < 0 & this.IsTouchingBottom(sprite)))
                 {
-                    this.velocity.Y = 0;
+                    position.Y = 0;
+                    HandleInput(currentKeyboardState);
                 }
             }
 
-            Position += velocity;
-            velocity = Vector2.Zero;
+
 
         }
 

@@ -10,16 +10,28 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace EmergencyTidalEscape.Sprites
 {
-    internal class Sprite : ITargetable
+    public class Sprite : ITargetable
     {
         public Behaviour m_Behaviour { get; private set; } = null;
+
+        protected AnimationManager _animationManager;
+
+        protected Dictionary<string, Animation> _animations;
+
+
         protected Vector2 position;
         public Vector2 Position
         {
             get { return position; }
-            set { position = value; }
-        }
+            set 
+            { 
+                position = value;
 
+
+                //if (_animationManager != null)
+                //    _animationManager.Position = position;
+            }
+        }
 
 
         private Vector2 velocity;
@@ -74,9 +86,31 @@ namespace EmergencyTidalEscape.Sprites
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(spriteImage, PositionRectangle, Color.White);
+            if (spriteImage != null)
+            {
+                spriteBatch.Draw(spriteImage, PositionRectangle, Color.White);
+            }
         }
+        //    else if (_animationManager != null)
+        //        _animationManager.Draw(spriteBatch);
+        //}
 
+        //protected virtual void SetAnimations()
+        //{
+        //    _animationManager.Play(_animations["wave-gif"]);
+        //}
+
+        //public Sprite(Dictionary<string, Animation> animations)
+        //{
+        //    _animations = animations;
+        //    _animationManager = new AnimationManager(_animations.First().Value);
+        //}
+
+        //public virtual void Update(GameTime gameTime, List<Sprite> sprites) 
+        //{
+        //    SetAnimations();
+        //    _animationManager.Update(gameTime);
+        //}
 
         protected bool IsTouchingLeft(Sprite sprite)
         {
@@ -103,7 +137,7 @@ namespace EmergencyTidalEscape.Sprites
         protected bool IsTouchingBottom(Sprite sprite)
         {
             return this.PositionRectangle.Top + this.Velocity.Y < sprite.PositionRectangle.Bottom &&
-                this.PositionRectangle.Bottom > sprite.PositionRectangle.Bottom &&
+                this.PositionRectangle.Bottom < sprite.PositionRectangle.Top &&
                 this.PositionRectangle.Right > sprite.PositionRectangle.Left &&
                 this.PositionRectangle.Left < sprite.PositionRectangle.Right;
         }

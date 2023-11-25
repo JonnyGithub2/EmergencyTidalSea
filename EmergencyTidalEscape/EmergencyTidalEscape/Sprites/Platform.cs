@@ -13,18 +13,18 @@ namespace EmergencyTidalEscape.Sprites
     {
         private Game1 _root;
 
-        public Platform(Game1 root, Vector2 Position, float width) : base(Position) 
+        public Platform(Game1 root, Vector2 Position) : base(Position) 
         { 
             _root = root;
             this.Position = Position;
-            this.SpriteWidth = 700f;
+            this.SpriteWidth = 128;
             
             LoadContent();
             
         }
         public void LoadContent()
         {
-            this.SpriteImage = _root.Content.Load<Texture2D>("platform_sprite");
+            this.SpriteImage = _root.Content.Load<Texture2D>("platform");
         }
 
 

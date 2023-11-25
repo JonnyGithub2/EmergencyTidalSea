@@ -11,7 +11,7 @@ using EmergencyTidalEscape.Sprites;
 
 namespace EmergencyTidalEscape.Sprites
 {
-    internal abstract class Behaviour
+    public abstract class Behaviour
     {
         protected Sprite _sprite;
         protected Behaviour(Sprite pSprite)

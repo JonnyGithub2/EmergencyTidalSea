@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using EmergencyTidalEscape.Sprites;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -10,23 +11,30 @@ namespace EmergencyTidalEscape
 {
     public class Wave
     {
+        private Game1 _root;
+        
+
         private float _waveHeight; //float between 1 and 0 showing how close it is to reaching top of screen (1 = top, 0 = bottom)
         private float _waveScroll; //maybe wave should scroll sideways and this will track that? 1 to 0;
         public Texture2D _waveTexture; // the texture of the wave
-        public Wave()
+        public Wave(Game1 root)
         {
-            _waveTexture = TextureLoaderGlobal.LoadTexture("WaveTexture");
+            _root = root;
+            _waveTexture = _root.Content.Load<Texture2D>("wave-gif");
             _waveHeight = 0;
             _waveScroll = 0;
         }
         public void Render()
         {
             Vector2 waveLocation1 = new Vector2(ScreenWidthGlobal * _waveScroll, ScreenHeightGlobal * (1 - _waveHeight));
-            Vector2 waveLocation2 = new Vector2(ScreenWidthGlobal *( _waveScroll - 1), ScreenHeightGlobal * (1 - _waveHeight));
+            Vector2 waveLocation2 = new Vector2(ScreenWidthGlobal * (_waveScroll - 1), ScreenHeightGlobal * (1 - _waveHeight));
             SpriteBatchGlobal.Draw(_waveTexture, waveLocation1, Color.White);
             SpriteBatchGlobal.Draw(_waveTexture, waveLocation2, Color.White);
 
+
+
         }
+
         public void Rise(float heightToRise)
         {
             _waveHeight += heightToRise;
@@ -39,5 +47,8 @@ namespace EmergencyTidalEscape
                 _waveScroll -= 1;
             }
         }
+
+
+
     }
 }

@@ -53,7 +53,7 @@ namespace EmergencyTidalEscape
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _player = new Player(this, new Vector2(0.0f, 0.0f));
-            _platform = new Platform(this, new Vector2(800, 450), 128);
+            _platform = new Platform(this, new Vector2(400, 200));
 
             _sprites = new List<Sprite>()
             {
@@ -66,7 +66,7 @@ namespace EmergencyTidalEscape
             ScreenWidthGlobal = screenWidth;
             TextureLoaderGlobal = new TextureLoader(this);
 
-            _wave = new Wave();
+            _wave = new Wave(this);
             _siren = new Siren();
             _siren._enabled = true;
             // TODO: use this.Content to load your game content here
@@ -91,8 +91,10 @@ namespace EmergencyTidalEscape
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             SpriteBatchGlobal.Begin();
+            
             _player.Draw(gameTime, _spriteBatch);
             _platform.Draw(gameTime, _spriteBatch);
+            
             _wave.Render();
             //_siren.Render();
             SpriteBatchGlobal.End();

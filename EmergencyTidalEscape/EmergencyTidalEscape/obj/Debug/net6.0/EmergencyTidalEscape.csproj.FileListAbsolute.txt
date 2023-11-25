@@ -55,3 +55,5 @@ C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTid
 C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\obj\Debug\net6.0\EmergencyTidalEscape.genruntimeconfig.cache
 C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\obj\Debug\net6.0\ref\EmergencyTidalEscape.dll
 C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\bin\Debug\net6.0\Content\platform_sprite.xnb
+C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\bin\Debug\net6.0\Content\wave-gif.xnb
+C:\Users\713324\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\bin\Debug\net6.0\Content\platform.xnb

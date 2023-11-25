@@ -1,4 +1,10 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+<<<<<<< HEAD
 "C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duncan_morter.png","C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/Content/duncan_morter.xnb","TextureProcessor","Texture2DContent",42332,640085,0.0358404
 "C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/RedOverlay.png","C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/Content/RedOverlay.xnb","TextureProcessor","Texture2DContent",78132,16777301,0.5346589
 "C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveTexture.png","C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/Content/WaveTexture.xnb","TextureProcessor","Texture2DContent",653272,2255925,0.050751
+=======
+"C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duncan_morter.png","C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/Content/duncan_morter.xnb","TextureProcessor","Texture2DContent",42332,640085,0.0314458
+"C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/RedOverlay.png","C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/Content/RedOverlay.xnb","TextureProcessor","Texture2DContent",78132,16777301,0.7094951
+"C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveTexture.png","C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/Content/WaveTexture.xnb","TextureProcessor","Texture2DContent",653272,2255925,0.0622917
+>>>>>>> b87eaa3ccb2d885f226ab0e6ab5bfad26b86796c

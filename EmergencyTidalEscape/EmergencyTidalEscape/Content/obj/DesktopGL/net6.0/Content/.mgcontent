@@ -4,8 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveTexture.png</File>
-    <File>C:/Users/713324/Source/Repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duncan_morter.png</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/RedOverlay.png</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveTexture.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

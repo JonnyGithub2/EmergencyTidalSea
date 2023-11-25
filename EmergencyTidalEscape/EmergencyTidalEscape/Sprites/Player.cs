@@ -28,7 +28,7 @@ namespace EmergencyTidalEscape.Sprites
             this._root = root;
             this.position = position;
             this.SpriteWidth = 128.0f;
-            gravity = 9.81f;
+            gravity = 3f;
             LoadContent();
         }
 

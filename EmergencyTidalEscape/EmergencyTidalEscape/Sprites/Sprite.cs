@@ -112,6 +112,15 @@ namespace EmergencyTidalEscape.Sprites
         //    _animationManager.Update(gameTime);
         //}
 
+
+
+        public override void Update(GameTime gameTime, Sprite sprite)
+        {
+            
+        }
+
+
+
         protected bool IsTouchingLeft(Sprite sprite)
         {
             return this.PositionRectangle.Right + this.Velocity.X > sprite.PositionRectangle.Left &&

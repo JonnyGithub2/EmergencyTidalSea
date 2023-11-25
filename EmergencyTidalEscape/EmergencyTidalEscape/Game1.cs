@@ -14,7 +14,7 @@ namespace EmergencyTidalEscape
         private Player _player;
         private List<Sprite> _sprites;
         private Platform _platform;
-        private int screenWidth = 1600;
+        private int screenWidth = 900;
         public int ScreenWidth
         {
             get { return screenWidth; }

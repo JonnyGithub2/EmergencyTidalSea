@@ -23,7 +23,7 @@ namespace EmergencyTidalEscape.Sprites
 
         public void LoadContent()
         {
-            SpriteImage = _root.Content.Load<Texture2D>("big-beach");
+            SpriteImage = _root.Content.Load<Texture2D>("beach");
         }
     }
 }

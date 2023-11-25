@@ -29,7 +29,7 @@ namespace EmergencyTidalEscape.Sprites
             this._root = root;
             this.position = position;
             this.SpriteWidth = 128.0f;
-            gravity = 3f;
+            gravity = 5f;
 
             velocity = GetVelocity();
 

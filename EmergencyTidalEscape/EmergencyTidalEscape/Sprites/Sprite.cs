@@ -114,10 +114,7 @@ namespace EmergencyTidalEscape.Sprites
 
 
 
-        public override void Update(GameTime gameTime, Sprite sprite)
-        {
-            
-        }
+
 
 
 

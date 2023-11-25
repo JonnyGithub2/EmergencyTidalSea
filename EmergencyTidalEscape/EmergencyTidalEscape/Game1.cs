@@ -1,5 +1,6 @@
 ﻿using EmergencyTidalEscape.Sprites;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -8,9 +9,13 @@ namespace EmergencyTidalEscape
 {
     public class Game1 : Game
     {
+        
         private GraphicsDeviceManager _graphics;
+        KeyboardState currentKeyboardState;
         private SpriteBatch _spriteBatch;
         private Wave _wave;
+        private Background _background;
+        private TitleScreen _titleScreen;
         private Player _player;
         private List<Sprite> _sprites;
         private Platform _platform;
@@ -52,6 +57,7 @@ namespace EmergencyTidalEscape
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _background = new Background(this, new Vector2(0,0));
             _player = new Player(this, new Vector2(0.0f, 0.0f));
             _platform = new Platform(this, new Vector2(400, 200));
 
@@ -91,9 +97,19 @@ namespace EmergencyTidalEscape
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             SpriteBatchGlobal.Begin();
-            
-            _player.Draw(gameTime, _spriteBatch);
-            _platform.Draw(gameTime, _spriteBatch);
+
+            _titleScreen.Draw(gameTime, _spriteBatch);
+            if (currentKeyboardState.IsKeyDown(Keys.Enter))
+            {
+                _background.Draw(gameTime, _spriteBatch);
+                _player.Draw(gameTime, _spriteBatch);
+                _platform.Draw(gameTime, _spriteBatch);
+            }
+
+
+
+
+
             
             _wave.Render();
             //_siren.Render();

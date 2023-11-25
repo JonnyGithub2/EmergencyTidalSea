@@ -22,6 +22,13 @@ namespace EmergencyTidalEscape.Sprites
         private float movementSpeed = 10.0f;
 
         private Vector2 velocity;
+        private enum playerState
+        {
+            JUMPING,
+            STANDING,
+            FALLING
+        }
+        private playerState _state;
 
 
         public Player(Game1 root, Vector2 position) : base(position)
@@ -32,6 +39,7 @@ namespace EmergencyTidalEscape.Sprites
             gravity = 5f;
 
             velocity = GetVelocity();
+            _state = playerState.STANDING;
 
             LoadContent();
         }
@@ -50,13 +58,9 @@ namespace EmergencyTidalEscape.Sprites
             bool sKeyPressed = currentKeyboardState.IsKeyDown(Keys.S);
             bool aKeyPressed = currentKeyboardState.IsKeyDown(Keys.A);
             bool dKeyPressed = currentKeyboardState.IsKeyDown(Keys.D);
-            if (wKeyPressed)
+            if (wKeyPressed && _state == playerState.STANDING)
             {
-                position.Y -= movementSpeed;
-            }
-            if (sKeyPressed)
-            {
-                position.Y += movementSpeed;
+                StartJump();
             }
             if (aKeyPressed)
             {
@@ -70,12 +74,43 @@ namespace EmergencyTidalEscape.Sprites
             }
             
         }
-
-
+        private void StartJump()
+        {
+            velocity.X += 10;
+            _state = playerState.JUMPING;
+        }
+        private bool OnGround(List<Sprite> sprites)
+        {
+            foreach(Sprite sprite in sprites)
+            {
+                Console.WriteLine("checking x pos");
+                if(this.position.X > sprite.PositionRectangle.Right && this.position.X < sprite.PositionRectangle.Left)
+                {
+                    Console.WriteLine("checking y pos");
+                    //sprite is lined up with player, now check if player is on top
+                    if (this.position.Y < sprite.PositionRectangle.Top + 50 && this.position.Y > PositionRectangle.Bottom)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
         public void Update(GameTime gameTime, List<Sprite> sprites)
         {
-
-            position.Y += gravity;
+            if(OnGround(sprites) && !(_state == playerState.JUMPING))
+            {
+                _state = playerState.STANDING;
+            }
+            else
+            {
+                _state = playerState.FALLING;
+            }
+            if(_state == playerState.FALLING)
+            {
+                position.Y += gravity;
+            }
+            
             KeyboardState currentKeyboardState = Keyboard.GetState();
             HandleInput(currentKeyboardState);
 

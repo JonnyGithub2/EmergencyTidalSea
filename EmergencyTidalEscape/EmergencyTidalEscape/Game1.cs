@@ -60,12 +60,13 @@ namespace EmergencyTidalEscape
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _titleScreen = new TitleScreen(this, new Vector2 (0, 0));
             _background = new Background(this, new Vector2(0,0));
-            _player = new Player(this, new Vector2(0.0f, 0.0f));
+            _player = new Player(this, new Vector2(400f, 0.0f));
             _platform = new Platform(this, new Vector2(400, 200));
+            _showGame = false;
 
             _sprites = new List<Sprite>()
             {
-                _platform,_player
+                _platform, _player, new Platform(this, new Vector2(400, 600))
             };
 
 
@@ -88,8 +89,11 @@ namespace EmergencyTidalEscape
             _player.Update(gameTime, _sprites);
             _wave.Rise(0.0005f);
             _siren.Update();
-
-            _showGame = false;
+            currentKeyboardState = Keyboard.GetState();
+            if (currentKeyboardState[Keys.Enter] == KeyState.Down)
+            {
+                _showGame = true;
+            }
 
             // TODO: Add your update logic here
 
@@ -103,24 +107,24 @@ namespace EmergencyTidalEscape
 
 
             
-            if (_showGame = false)
+            if (_showGame == false)
             {
                 _titleScreen.Draw(gameTime, _spriteBatch);
 
             }
 
 
-            if (currentKeyboardState.IsKeyDown(Keys.Enter))
-            {
-                _showGame = true;
-            }
 
 
-            if (_showGame = true)
+            if (_showGame == true)
             {
                 _background.Draw(gameTime, _spriteBatch);
-                _player.Draw(gameTime, _spriteBatch);
-                _platform.Draw(gameTime, _spriteBatch);
+                //_player.Draw(gameTime, _spriteBatch);
+                //_platform.Draw(gameTime, _spriteBatch);
+                foreach (Sprite sprite in _sprites)
+                {
+                    sprite.Draw(gameTime, _spriteBatch);
+                }
                 _wave.Render();
             }
 

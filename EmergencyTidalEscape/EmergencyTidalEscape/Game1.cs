@@ -21,6 +21,8 @@ namespace EmergencyTidalEscape
         private List<Sprite> _sprites;
         private Platform _platform;
         private int screenWidth = 900;
+        private WaveFreeze _powerupTest;
+        public List<Powerup> _powerups;
         public int ScreenWidth
         {
             get { return screenWidth; }
@@ -60,13 +62,14 @@ namespace EmergencyTidalEscape
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _titleScreen = new TitleScreen(this, new Vector2 (0, 0));
             _background = new Background(this, new Vector2(0,0));
-            _player = new Player(this, new Vector2(401f, 0.0f));
+            _wave = new Wave(this);
+            _player = new Player(this, new Vector2(401f, 0.0f), _wave);
             _platform = new Platform(this, new Vector2(400, 200));
             _showGame = true;
 
             _sprites = new List<Sprite>()
             {
-                _platform, _player, new Platform(this, new Vector2(400, 600))
+                _platform, _player, new Platform(this, new Vector2(400, 600)), new Platform(this, new Vector2(400, 400))
             };
 
 
@@ -75,8 +78,10 @@ namespace EmergencyTidalEscape
             ScreenWidthGlobal = screenWidth;
             TextureLoaderGlobal = new TextureLoader(this);
 
-            _wave = new Wave(this);
             _siren = new Siren();
+            _powerupTest = new WaveFreeze(new Vector2(400, 500));
+            _powerups = new List<Powerup>();
+            _powerups.Add(_powerupTest);
             _siren._enabled = true;
             // TODO: use this.Content to load your game content here
         }
@@ -103,10 +108,15 @@ namespace EmergencyTidalEscape
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            SpriteBatchGlobal.Begin();
+            SpriteBatchGlobal.Begin(SpriteSortMode.Deferred,
+            BlendState.AlphaBlend,
+            SamplerState.PointClamp,
+            DepthStencilState.None,
+            RasterizerState.CullNone,
+            null);
 
 
-            
+
             if (_showGame == false)
             {
                 _titleScreen.Draw(gameTime, _spriteBatch);
@@ -126,6 +136,15 @@ namespace EmergencyTidalEscape
                     sprite.Draw(gameTime, _spriteBatch);
                 }
                 _wave.Render();
+                if (_player._dangerLevel == 1)
+                {
+                    _siren.Render();
+                }
+                else if(_player._dangerLevel == 2)
+                {
+                    _showGame = false;
+                }
+                _powerupTest.Render();
             }
 
 

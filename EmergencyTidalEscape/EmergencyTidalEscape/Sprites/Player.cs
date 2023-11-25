@@ -23,6 +23,10 @@ namespace EmergencyTidalEscape.Sprites
         private float movementSpeed = 10.0f;
 
         private Vector2 velocity;
+        private Wave _wave;
+        public int _dangerLevel; //0 = not near wave, 1 = near wave (siren active), 2 = in wave (die)
+
+
         private enum playerState
         {
             JUMPING,
@@ -32,17 +36,19 @@ namespace EmergencyTidalEscape.Sprites
         private playerState _state;
 
 
-        public Player(Game1 root, Vector2 position) : base(position)
+        public Player(Game1 root, Vector2 position, Wave wave) : base(position)
         {
             this._root = root;
             this.position = position;
             this.SpriteWidth = 128.0f;
-            gravity = 5f;
+            gravity = 4f;
 
             velocity = GetVelocity();
             _state = playerState.STANDING;
 
             LoadContent();
+            _wave = wave;
+            _dangerLevel = 0;
         }
 
 
@@ -77,7 +83,7 @@ namespace EmergencyTidalEscape.Sprites
         }
         private void StartJump()
         {
-            velocity.Y -= 10;
+            velocity.Y -= 20;
             _state = playerState.JUMPING;
         }
         private bool OnGround(List<Sprite> sprites)
@@ -86,10 +92,10 @@ namespace EmergencyTidalEscape.Sprites
             {
                 if(sprite != this)
                 {
-                    if (this.position.X > sprite.PositionRectangle.Left - 20 && this.position.X < sprite.PositionRectangle.Right + 20)
+                    if (this.position.X > sprite.PositionRectangle.Left - (this.SpriteWidth / 2) && this.position.X < sprite.PositionRectangle.Right - (this.SpriteWidth / 2))
                     {
                         //sprite is lined up with player, now check if player is on top
-                        if (this.position.Y < sprite.PositionRectangle.Bottom && this.position.Y > sprite.PositionRectangle.Top - 50)
+                        if (this.position.Y < sprite.PositionRectangle.Bottom - 100 && this.position.Y > sprite.PositionRectangle.Top - 80)
                         {
                             return true;
                         }
@@ -97,6 +103,18 @@ namespace EmergencyTidalEscape.Sprites
                 }
             }
             return false;
+        }
+        private Powerup FindPowerups(List<Powerup> pPowerups)
+        {
+            foreach(Powerup powerup in pPowerups)
+            {
+                Point pos = new Point((int)this.position.X, (int)this.position.Y);
+                if (powerup._bounds.Contains(pos))
+                {
+                    return powerup;
+                }
+            }
+            return null;
         }
         public void Update(GameTime gameTime, List<Sprite> sprites)
         {
@@ -128,6 +146,23 @@ namespace EmergencyTidalEscape.Sprites
             position += velocity;
             KeyboardState currentKeyboardState = Keyboard.GetState();
             HandleInput(currentKeyboardState);
+            if(this.position.Y > _wave.GetWaveKillZone() - 300)
+            {
+                _dangerLevel = 1;
+                if(this.position.Y > _wave.GetWaveKillZone())
+                {
+                    _dangerLevel = 2;
+                }
+            }
+            else
+            {
+                _dangerLevel = 0;
+            }
+            Powerup getPowerup = FindPowerups(_root._powerups);
+            if (getPowerup != null)
+            {
+                getPowerup.OnPickup();
+            }
         }
 
     }

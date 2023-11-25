@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Profile>Reach</Profile>
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveTexture.png</File>
+    <File>C:/Users/713324/source/repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duncan_morter.png</File>
+    <File>C:/Users/713324/source/repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveTexture.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

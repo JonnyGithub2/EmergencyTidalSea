@@ -67,6 +67,7 @@ namespace EmergencyTidalEscape.Sprites
 
         public void Update(GameTime gameTime)
         {
+
             position.Y += gravity;
             KeyboardState currentKeyboardState = Keyboard.GetState();
             HandleInput(currentKeyboardState);

@@ -60,6 +60,7 @@ namespace EmergencyTidalEscape.Sprites
             {
                 position.X += movementSpeed;
             }
+            if(position.Y = )
         }
 
         public void Update(GameTime gameTime)

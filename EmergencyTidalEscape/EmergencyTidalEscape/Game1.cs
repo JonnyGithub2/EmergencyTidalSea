@@ -50,6 +50,17 @@ namespace EmergencyTidalEscape
         {
             return Content.Load<Texture2D>(pTextureName);
         }
+        private void NextLevel()
+        {
+            foreach(Sprite sprite in _sprites)
+            {
+                sprite.FallAway();
+            }
+        }
+        private void Die()
+        {
+            _showGame = false;
+        }
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
@@ -63,7 +74,7 @@ namespace EmergencyTidalEscape
             _titleScreen = new TitleScreen(this, new Vector2 (0, 0));
             _background = new Background(this, new Vector2(0,0));
             _wave = new Wave(this);
-            _player = new Player(this, new Vector2(401f, 0.0f), _wave);
+            _player = new Player(this, new Vector2(401f, 500f), _wave);
             _platform = new Platform(this, new Vector2(400, 200));
             _showGame = true;
 
@@ -94,10 +105,22 @@ namespace EmergencyTidalEscape
             _player.Update(gameTime, _sprites);
             _wave.Rise(0.0005f);
             _siren.Update();
+            foreach (var sprite in _sprites)
+            {
+                if(sprite != _player)
+                {
+                    sprite.UpdateFall();
+                }
+            }
+            _sprites.RemoveAll(sprite => sprite._dead);
             currentKeyboardState = Keyboard.GetState();
             if (currentKeyboardState[Keys.Enter] == KeyState.Down)
             {
                 _showGame = true;
+            }
+            if(_player._levelWon)
+            {
+                NextLevel();
             }
 
             // TODO: Add your update logic here
@@ -142,7 +165,7 @@ namespace EmergencyTidalEscape
                 }
                 else if(_player._dangerLevel == 2)
                 {
-                    _showGame = false;
+                    Die();
                 }
                 _powerupTest.Render();
             }

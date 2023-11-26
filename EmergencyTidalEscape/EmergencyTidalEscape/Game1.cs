@@ -16,7 +16,7 @@ namespace EmergencyTidalEscape
         private SpriteBatch _spriteBatch;
         private Wave _wave;
         private Level _level;
-        private bool _showGame = false;
+        private bool _showTitleScreen = true;
         private Background _background;
         private TitleScreen _titleScreen;
         private Player _player;
@@ -54,37 +54,37 @@ namespace EmergencyTidalEscape
         {
             return Content.Load<Texture2D>(pTextureName);
         }
-        private void NextLevel()
-        {
-            foreach(Sprite sprite in _sprites)
-            {
-                sprite.FallAway();
-            }
-            LoadLevel(_currentLevel);
-            _currentLevel++;
-        }
-        private void LoadLevel(int levelID)
-        {
-            _loadingLevel = true;
-            _level.LoadLevel(levelID);
+        //private void NextLevel()
+        //{
+        //    foreach(Sprite sprite in _sprites)
+        //    {
+        //        sprite.FallAway();
+        //    }
+        //    LoadLevel(_currentLevel);
+        //    _currentLevel++;
+        //}
+        //private void LoadLevel(int levelID)
+        //{
+        //    _loadingLevel = true;
+        //    _level.LoadLevel(levelID);
 
-            foreach (Platform platform in _sprites)
-            {
-                Vector2 platformLocation = _level.GetPlatformLocations();
-                _sprites.Add(new Platform(this, platformLocation));
-            }
+        //    foreach (Platform platform in _sprites)
+        //    {
+        //        Vector2 platformLocation = _level.GetPlatformLocations();
+        //        _sprites.Add(new Platform(this, platformLocation));
+        //    }
 
-            foreach(Powerup powerup in _powerups)
-            {
-                _powerups.Add(powerup);
-            }
-            Vector2 _playerLocation = _level.GetPlayerLocation();
-            _player.Position = _playerLocation;
-            _loadingLevel = false;
-        }
+        //    foreach(Powerup powerup in _powerups)
+        //    {
+        //        _powerups.Add(powerup);
+        //    }
+        //    Vector2 _playerLocation = _level.GetPlayerLocation();
+        //    _player.Position = _playerLocation;
+        //    _loadingLevel = false;
+        //}
         private void Die()
         {
-            _showGame = false;
+            _showTitleScreen = true;
         }
         protected override void Initialize()
         {
@@ -95,19 +95,22 @@ namespace EmergencyTidalEscape
 
         protected override void LoadContent()
         {
+            _showTitleScreen = true;
+
+
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _titleScreen = new TitleScreen(this, new Vector2 (0, 0));
             _background = new Background(this, new Vector2(0,0));
             _wave = new Wave(this);
-            _player = new Player(this, new Vector2(401f, 500f), _wave);
+            _player = new Player(this, new Vector2(401f, 500), _wave);
             _platform = new Platform(this, new Vector2(400, 200));
-            _showGame = true;
+            
             _loadingLevel = false;
             _currentLevel = 0;
 
             _sprites = new List<Sprite>()
             {
-                _platform, _player, new Platform(this, new Vector2(400, 600)), new Platform(this, new Vector2(400, 400))
+                _platform, _player, new Platform(this, new Vector2(400, 600)), new Platform(this, new Vector2(400, 400)), new Platform(this, new Vector2(200, 200)), new Platform(this, new Vector2(600, 600)),new Platform(this, new Vector2(700, 500)), new Platform(this, new Vector2(200,300))
             };
 
 
@@ -117,7 +120,7 @@ namespace EmergencyTidalEscape
             TextureLoaderGlobal = new TextureLoader(this);
 
             _siren = new Siren();
-            _powerupTest = new WaveFreeze(new Vector2(400, 500));
+            _powerupTest = new WaveFreeze(new Vector2(400, 100));
             _powerups = new List<Powerup>();
             _powerups.Add(_powerupTest);
             _siren._enabled = true;
@@ -145,11 +148,11 @@ namespace EmergencyTidalEscape
                 currentKeyboardState = Keyboard.GetState();
                 if (currentKeyboardState[Keys.Enter] == KeyState.Down)
                 {
-                    _showGame = true;
+                    _showTitleScreen = false;
                 }
                 if (_player._levelWon)
                 {
-                    NextLevel();
+                    //NextLevel();
                 }
             }
 
@@ -171,7 +174,7 @@ namespace EmergencyTidalEscape
 
 
 
-            if (_showGame == false)
+            if (_showTitleScreen == true)
             {
                 _titleScreen.Draw(gameTime, _spriteBatch);
 
@@ -180,7 +183,7 @@ namespace EmergencyTidalEscape
 
 
 
-            if (_showGame == true)
+            if (_showTitleScreen == false)
             {
                 _background.Draw(gameTime, _spriteBatch);
                 //_player.Draw(gameTime, _spriteBatch);

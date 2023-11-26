@@ -85,7 +85,7 @@ namespace EmergencyTidalEscape.Sprites
         }
         private void StartJump()
         {
-            velocity.Y -= 20;
+            velocity.Y -= 13;
             _state = playerState.JUMPING;
         }
         private bool OnGround(List<Sprite> sprites)

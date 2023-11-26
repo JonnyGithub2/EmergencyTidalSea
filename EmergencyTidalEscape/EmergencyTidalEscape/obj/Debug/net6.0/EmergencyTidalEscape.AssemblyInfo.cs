@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EmergencyTidalEscape")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9aa226250a78ed36bbab833320c2d1f4a4b208c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("EmergencyTidalEscape")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EmergencyTidalEscape")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

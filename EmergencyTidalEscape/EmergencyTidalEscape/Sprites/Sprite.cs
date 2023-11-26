@@ -17,6 +17,9 @@ namespace EmergencyTidalEscape.Sprites
         protected AnimationManager _animationManager;
 
         protected Dictionary<string, Animation> _animations;
+        private bool _fallingAway;
+        public bool _dead;
+
 
 
         protected Vector2 position;
@@ -79,7 +82,8 @@ namespace EmergencyTidalEscape.Sprites
         public Sprite(Vector2 position)
         {
             this.position = position;
-
+            _dead = false;
+            _fallingAway = false;
         }
 
 
@@ -89,6 +93,21 @@ namespace EmergencyTidalEscape.Sprites
             if (spriteImage != null)
             {
                 spriteBatch.Draw(spriteImage, PositionRectangle, Color.White);
+            }
+        }
+        public void FallAway()
+        {
+            _fallingAway = true;
+        }
+        public void UpdateFall()
+        {
+            if (_fallingAway)
+            {
+                position.Y += 25;
+                if(position.Y > RenderingGlobals.ScreenHeightGlobal)
+                {
+                    _dead = true;
+                }
             }
         }
         //    else if (_animationManager != null)

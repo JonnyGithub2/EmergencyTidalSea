@@ -25,6 +25,7 @@ namespace EmergencyTidalEscape.Sprites
         private Vector2 velocity;
         private Wave _wave;
         public int _dangerLevel; //0 = not near wave, 1 = near wave (siren active), 2 = in wave (die)
+        public bool _levelWon;
 
 
         private enum playerState
@@ -49,6 +50,7 @@ namespace EmergencyTidalEscape.Sprites
             LoadContent();
             _wave = wave;
             _dangerLevel = 0;
+            _levelWon = false;
         }
 
 
@@ -157,6 +159,15 @@ namespace EmergencyTidalEscape.Sprites
             else
             {
                 _dangerLevel = 0;
+            }
+
+            if(this.position.Y < 50)
+            {
+                _levelWon = true;
+            }
+            else
+            {
+                _levelWon = false;
             }
             Powerup getPowerup = FindPowerups(_root._powerups);
             if (getPowerup != null)

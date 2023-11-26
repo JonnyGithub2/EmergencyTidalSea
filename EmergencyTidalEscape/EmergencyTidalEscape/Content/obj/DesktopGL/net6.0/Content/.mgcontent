@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+<<<<<<< HEAD
     <File>C:/Users/George/source/repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/big-beach.png</File>
     <File>C:/Users/George/source/repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duck-left.png</File>
     <File>C:/Users/George/source/repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duck.png</File>
@@ -15,6 +16,19 @@
     <File>C:/Users/George/source/repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/wave-gif.gif</File>
     <File>C:/Users/George/source/repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveTexture.png</File>
     <File>C:/Users/George/source/repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveFreezeTexture.png</File>
+=======
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/big-beach.png</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duck-left.png</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duck.png</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duncan_morter.png</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/platform_sprite.png</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/platform.png</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/RedOverlay.png</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/titlescreen.png</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/wave-gif.gif</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveFreezeTexture.png</File>
+    <File>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/WaveTexture.png</File>
+>>>>>>> de006862b60c15d64dc75ad0ad82d57e763ecca2
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

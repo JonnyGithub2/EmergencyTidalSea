@@ -1,4 +1,4 @@
-﻿using EmergencyTidalEscape.Levels;
+﻿
 using EmergencyTidalEscape.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -15,6 +15,7 @@ namespace EmergencyTidalEscape
         KeyboardState currentKeyboardState;
         private SpriteBatch _spriteBatch;
         private Wave _wave;
+        private Level _level;
         private bool _showGame = false;
         private Background _background;
         private TitleScreen _titleScreen;
@@ -65,16 +66,20 @@ namespace EmergencyTidalEscape
         private void LoadLevel(int levelID)
         {
             _loadingLevel = true;
-            Level level = Level.LoadLevel(levelID);
-            foreach(Vector2 platformLocation in level.GetPlatformLocations())
+            _level.LoadLevel(levelID);
+
+            foreach (Platform platform in _sprites)
             {
+                Vector2 platformLocation = _level.GetPlatformLocations();
                 _sprites.Add(new Platform(this, platformLocation));
             }
-            foreach(Powerup powerup in level.GetPowerups())
+
+            foreach(Powerup powerup in _powerups)
             {
                 _powerups.Add(powerup);
             }
-            _player.Position = level._playerLocation;
+            Vector2 _playerLocation = _level.GetPlayerLocation();
+            _player.Position = _playerLocation;
             _loadingLevel = false;
         }
         private void Die()

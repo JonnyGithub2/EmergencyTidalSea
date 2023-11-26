@@ -34,6 +34,11 @@ namespace EmergencyTidalEscape
                 SpriteBatchGlobal.Draw(_texture, _location, Color.White);
             }
         }
+
+        public Vector2 PowerupPosition()
+        {
+            return _location;
+        }
     }
     public class WaveFreeze : Powerup
     {

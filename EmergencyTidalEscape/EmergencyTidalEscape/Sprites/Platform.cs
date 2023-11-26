@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace EmergencyTidalEscape.Sprites
 {
-    internal class Platform : Sprite
+    public class Platform : Sprite
     {
         private Game1 _root;
 

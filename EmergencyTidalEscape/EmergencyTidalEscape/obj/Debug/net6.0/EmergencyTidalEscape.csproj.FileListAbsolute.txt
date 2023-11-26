@@ -34,3 +34,4 @@ C:\Users\George\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTid
 C:\Users\George\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\obj\Debug\net6.0\EmergencyTidalEscape.pdb
 C:\Users\George\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\obj\Debug\net6.0\EmergencyTidalEscape.genruntimeconfig.cache
 C:\Users\George\Source\Repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\obj\Debug\net6.0\ref\EmergencyTidalEscape.dll
+C:\Users\George\source\repos\EmergencyTidalSea\EmergencyTidalEscape\EmergencyTidalEscape\bin\Debug\net6.0\Content\WaveFreezeTexture.xnb

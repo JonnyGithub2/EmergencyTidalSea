@@ -1,4 +1,5 @@
-﻿using EmergencyTidalEscape.Sprites;
+﻿using EmergencyTidalEscape.Levels;
+using EmergencyTidalEscape.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -23,6 +24,8 @@ namespace EmergencyTidalEscape
         private int screenWidth = 900;
         private WaveFreeze _powerupTest;
         public List<Powerup> _powerups;
+        private bool _loadingLevel;
+        private int _currentLevel;
         public int ScreenWidth
         {
             get { return screenWidth; }
@@ -56,6 +59,23 @@ namespace EmergencyTidalEscape
             {
                 sprite.FallAway();
             }
+            LoadLevel(_currentLevel);
+            _currentLevel++;
+        }
+        private void LoadLevel(int levelID)
+        {
+            _loadingLevel = true;
+            Level level = Level.LoadLevel(levelID);
+            foreach(Vector2 platformLocation in level.GetPlatformLocations())
+            {
+                _sprites.Add(new Platform(this, platformLocation));
+            }
+            foreach(Powerup powerup in level.GetPowerups())
+            {
+                _powerups.Add(powerup);
+            }
+            _player.Position = level._playerLocation;
+            _loadingLevel = false;
         }
         private void Die()
         {
@@ -77,6 +97,8 @@ namespace EmergencyTidalEscape
             _player = new Player(this, new Vector2(401f, 500f), _wave);
             _platform = new Platform(this, new Vector2(400, 200));
             _showGame = true;
+            _loadingLevel = false;
+            _currentLevel = 0;
 
             _sprites = new List<Sprite>()
             {
@@ -101,27 +123,31 @@ namespace EmergencyTidalEscape
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            _wave.Scroll();
-            _player.Update(gameTime, _sprites);
-            _wave.Rise(0.0005f);
-            _siren.Update();
-            foreach (var sprite in _sprites)
+            if(!_loadingLevel)
             {
-                if(sprite != _player)
+                _wave.Scroll();
+                _player.Update(gameTime, _sprites);
+                _wave.Rise(0.0005f);
+                _siren.Update();
+                foreach (var sprite in _sprites)
                 {
-                    sprite.UpdateFall();
+                    if (sprite != _player)
+                    {
+                        sprite.UpdateFall();
+                    }
+                }
+                _sprites.RemoveAll(sprite => sprite._dead);
+                currentKeyboardState = Keyboard.GetState();
+                if (currentKeyboardState[Keys.Enter] == KeyState.Down)
+                {
+                    _showGame = true;
+                }
+                if (_player._levelWon)
+                {
+                    NextLevel();
                 }
             }
-            _sprites.RemoveAll(sprite => sprite._dead);
-            currentKeyboardState = Keyboard.GetState();
-            if (currentKeyboardState[Keys.Enter] == KeyState.Down)
-            {
-                _showGame = true;
-            }
-            if(_player._levelWon)
-            {
-                NextLevel();
-            }
+
 
             // TODO: Add your update logic here
 

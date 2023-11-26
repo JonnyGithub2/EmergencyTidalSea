@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/713324/source/repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duck.png</SourceFile>
-  <SourceTime>2023-11-25T15:07:55.6400138+00:00</SourceTime>
-  <DestFile>C:/Users/713324/source/repos/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/duck.xnb</DestFile>
-  <DestTime>2023-11-25T16:01:45.2789729+00:00</DestTime>
+  <SourceFile>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/duck.png</SourceFile>
+  <SourceTime>2023-11-25T19:26:29.3454384+00:00</SourceTime>
+  <DestFile>C:/Users/super_lia1i9n/Desktop/EmergencyTidalSea/EmergencyTidalEscape/EmergencyTidalEscape/Content/bin/DesktopGL/duck.xnb</DestFile>
+  <DestTime>2023-11-26T02:04:10.1934251+00:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T12:44:56+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

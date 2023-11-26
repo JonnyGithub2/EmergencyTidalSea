@@ -165,6 +165,10 @@ namespace EmergencyTidalEscape.Sprites
             {
                 _levelWon = true;
             }
+            else
+            {
+                _levelWon = false;
+            }
             Powerup getPowerup = FindPowerups(_root._powerups);
             if (getPowerup != null)
             {

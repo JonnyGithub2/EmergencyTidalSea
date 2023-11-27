@@ -1,6 +1,7 @@
 ﻿
 using EmergencyTidalEscape.Sprites;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -19,6 +20,7 @@ namespace EmergencyTidalEscape
         private bool _showTitleScreen = true;
         private Background _background;
         private TitleScreen _titleScreen;
+        private SoundEffect _simonSound;
         private Player _player;
         private List<Sprite> _sprites;
         private Platform _platform;
@@ -97,6 +99,8 @@ namespace EmergencyTidalEscape
         {
             _showTitleScreen = true;
 
+            _simonSound = this.Content.Load<SoundEffect>("Simon Approves");
+            _simonSound.Play();
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _titleScreen = new TitleScreen(this, new Vector2 (0, 0));
@@ -173,10 +177,11 @@ namespace EmergencyTidalEscape
             null);
 
 
-
             if (_showTitleScreen == true)
             {
+                
                 _titleScreen.Draw(gameTime, _spriteBatch);
+                
 
             }
 
